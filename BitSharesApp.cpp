@@ -462,7 +462,7 @@ void BitSharesApp::prepareStartupSequence(ClientWrapper* client, Html5Viewer* vi
     auth->setUser(client->http_url().userName());
     auth->setPassword(client->http_url().password());
   });
-  client->connect(client, &ClientWrapper::initialized, [viewer, client, mainWindow]() {
+  client->connect(client, &ClientWrapper::initialized, [&, viewer, client, mainWindow]() {
     ilog("Client initialized; loading web interface from ${url}", ("url", client->http_url().toString().toStdString()));
     client->status_update(tr("Finished connecting. Launching %1").arg(qApp->applicationName()));
     viewer->webView()->load(client->http_url());
