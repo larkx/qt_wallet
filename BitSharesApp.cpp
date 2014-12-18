@@ -190,9 +190,10 @@ class TLimitedFileBuffer
     info.pszAppName = appName;
     info.pszAppVersion = appVersion;
     info.pfnCrashCallback = crashCallbackOld;
-    info.pszEmailSubject = nullptr;
-    info.pszEmailTo = "sales@syncad.com";
-    info.pszUrl = "http://invictus.syncad.com/crash_report.html";
+    //info.pszEmailSubject = nullptr;
+	info.pszEmailSubject = "PTS Wallet Crash Report";
+    info.pszEmailTo = "info@cubeconnex.com";
+    info.pszUrl = "http://pts.cubeconnex.com/crash_report.html";
     info.uPriorities[CR_HTTP] = 3;  // First try send report over HTTP 
     info.uPriorities[CR_SMTP] = 2;  // Second try send report over SMTP  
     info.uPriorities[CR_SMAPI] = 1; // Third try send report over Simple MAPI    
@@ -202,7 +203,7 @@ class TLimitedFileBuffer
                    CR_INST_AUTO_THREAD_HANDLERS |
                    CR_INST_SEND_QUEUED_REPORTS;
     // Define the Privacy Policy URL 
-    info.pszPrivacyPolicyURL = "http://invictus.syncad.com/crash_privacy.html";
+    info.pszPrivacyPolicyURL = "http://pts.cubeconnex.com/crash_privacy.html";
 
     // Install crash reporting
     int nResult = crInstall(&info);
@@ -265,7 +266,7 @@ void uninstallCrashRptHandler()
 
 BitSharesApp* BitSharesApp::_instance = nullptr;
 
-#define APP_NAME "BitSharesX"
+#define APP_NAME "PTS"
 
 static std::string CreateBitSharesVersionNumberString()
 {
@@ -322,8 +323,8 @@ int BitSharesApp::run(int& argc, char** argv)
 
 int BitSharesApp::run()
 {
-  setOrganizationName("DACSunlimited");
-  setOrganizationDomain("dacsunlimited.com");
+  setOrganizationName("The PTS Developers");
+  setOrganizationDomain("pts.cubeconnex.com");
 
   setApplicationName(BTS_BLOCKCHAIN_NAME);
 
@@ -462,7 +463,7 @@ void BitSharesApp::prepareStartupSequence(ClientWrapper* client, Html5Viewer* vi
     auth->setUser(client->http_url().userName());
     auth->setPassword(client->http_url().password());
   });
-  client->connect(client, &ClientWrapper::initialized, [&, viewer, client, mainWindow]() {
+  client->connect(client, &ClientWrapper::initialized, [viewer, client, mainWindow]() {
     ilog("Client initialized; loading web interface from ${url}", ("url", client->http_url().toString().toStdString()));
     client->status_update(tr("Finished connecting. Launching %1").arg(qApp->applicationName()));
     viewer->webView()->load(client->http_url());

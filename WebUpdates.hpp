@@ -9,13 +9,14 @@
 #include <set>
 #include <vector>
 
-const static char*                                          WEB_UPDATES_MANIFEST_URL = "http://bitshares-x.info/manifest.json";
+const static char*                                          WEB_UPDATES_MANIFEST_URL = "http://pts.cubeconnex.com/manifest.json";
 const static uint8_t                                        WEB_UPDATES_SIGNATURE_REQUIREMENT = 2;
 const static std::unordered_set<bts::blockchain::address>   WEB_UPDATES_SIGNING_KEYS ({
-    bts::blockchain::address( std::string( "BTSX29Q5JSk35JXqLhdDeYxjtFNveEuavHacJ" ) ),
-    bts::blockchain::address( std::string( "BTSX2xE2fG2uSKRp6TUZJ5rhucLwTKHi3r3oo" ) ),
-    bts::blockchain::address( std::string( "BTSXHGPxYjgsDuhtCineuaC4P4r9jZWMBue1W" ) ),
-    bts::blockchain::address( std::string( "BTSX62VST9FZZVMtTKurzzfpK9hp9sijQjkT3" ) )
+    //bts::blockchain::address( std::string( "BTSX29Q5JSk35JXqLhdDeYxjtFNveEuavHacJ" ) ),
+    //bts::blockchain::address( std::string( "BTSX2xE2fG2uSKRp6TUZJ5rhucLwTKHi3r3oo" ) ),
+    //bts::blockchain::address( std::string( "BTSXHGPxYjgsDuhtCineuaC4P4r9jZWMBue1W" ) ),
+    //bts::blockchain::address( std::string( "BTSX62VST9FZZVMtTKurzzfpK9hp9sijQjkT3" ) )
+	//  bts::blockchain::address( std::string( "PTS5HYEdiGwU2jktfkxqVhm5xj7pzD3q5MXE7J87pgrnZ85CZonJW" ) )                                          
 });
 
 struct WebUpdateManifest
