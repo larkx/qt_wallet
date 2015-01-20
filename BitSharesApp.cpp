@@ -191,9 +191,9 @@ class TLimitedFileBuffer
     info.pszAppVersion = appVersion;
     info.pfnCrashCallback = crashCallbackOld;
     //info.pszEmailSubject = nullptr;
-	info.pszEmailSubject = "PTS Wallet Crash Report";
-    info.pszEmailTo = "info@cubeconnex.com";
-    info.pszUrl = "http://pts.cubeconnex.com/crash_report.html";
+	info.pszEmailSubject = "LarkX Wallet Crash Report";
+    info.pszEmailTo = "support@larkx.com";
+    info.pszUrl = "http://larkx.com/crash_report.html";
     info.uPriorities[CR_HTTP] = 3;  // First try send report over HTTP 
     info.uPriorities[CR_SMTP] = 2;  // Second try send report over SMTP  
     info.uPriorities[CR_SMAPI] = 1; // Third try send report over Simple MAPI    
@@ -203,7 +203,7 @@ class TLimitedFileBuffer
                    CR_INST_AUTO_THREAD_HANDLERS |
                    CR_INST_SEND_QUEUED_REPORTS;
     // Define the Privacy Policy URL 
-    info.pszPrivacyPolicyURL = "http://pts.cubeconnex.com/crash_privacy.html";
+    info.pszPrivacyPolicyURL = "http://larkx.com/crash_privacy.html";
 
     // Install crash reporting
     int nResult = crInstall(&info);
@@ -266,7 +266,7 @@ void uninstallCrashRptHandler()
 
 BitSharesApp* BitSharesApp::_instance = nullptr;
 
-#define APP_NAME "PTS"
+#define APP_NAME "LarkX"
 
 static std::string CreateBitSharesVersionNumberString()
 {
@@ -323,8 +323,8 @@ int BitSharesApp::run(int& argc, char** argv)
 
 int BitSharesApp::run()
 {
-  setOrganizationName("The PTS Developers");
-  setOrganizationDomain("pts.cubeconnex.com");
+  setOrganizationName("The LarkX Team");
+  setOrganizationDomain("larkx.com");
 
   setApplicationName(BTS_BLOCKCHAIN_NAME);
 

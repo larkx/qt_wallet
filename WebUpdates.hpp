@@ -9,7 +9,7 @@
 #include <set>
 #include <vector>
 
-const static char*                                          WEB_UPDATES_MANIFEST_URL = "http://pts.cubeconnex.com/manifest.json";
+const static char*                                          WEB_UPDATES_MANIFEST_URL = "http://larkx.com/manifest.json";
 const static uint8_t                                        WEB_UPDATES_SIGNATURE_REQUIREMENT = 2;
 const static std::unordered_set<bts::blockchain::address>   WEB_UPDATES_SIGNING_KEYS ({
     //bts::blockchain::address( std::string( "BTSX29Q5JSk35JXqLhdDeYxjtFNveEuavHacJ" ) ),
