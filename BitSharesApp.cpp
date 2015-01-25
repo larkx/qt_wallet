@@ -394,7 +394,7 @@ int BitSharesApp::run()
   QPixmap pixmap(":/images/splash_screen.jpg");
   QSplashScreen splash(pixmap);
   splash.showMessage(QApplication::tr("Loading configuration..."),
-    Qt::AlignCenter | Qt::AlignBottom, Qt::white);
+    Qt::AlignCenter | Qt::AlignBottom, Qt::black);
   splash.show();
 
   prepareStartupSequence(clientWrapper.get(), viewer, &mainWindow, &splash);
@@ -490,7 +490,7 @@ void BitSharesApp::prepareStartupSequence(ClientWrapper* client, Html5Viewer* vi
     exit(1);
   });
   client->connect(client, &ClientWrapper::status_update, [=](QString messageString) {
-    splash->showMessage(messageString, Qt::AlignCenter | Qt::AlignBottom, Qt::white);
+    splash->showMessage(messageString, Qt::AlignCenter | Qt::AlignBottom, Qt::black);
   });
 }
 
