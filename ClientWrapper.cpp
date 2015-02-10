@@ -161,13 +161,16 @@ void ClientWrapper::initialize(INotifier* notifier)
       // load config for p2p node.. creates cli
       const bts::client::config& loadedCfg = _client->configure( data_dir.toStdWString() );
 
+	  auto currNode = new bts::net::node("");
+	  uint16_t port = currNode->load_configuration_simple(data_dir.toStdWString());
+
       if(notifier != nullptr)
         notifier->on_config_loaded(loadedCfg);
 
       _client->init_cli();
 
       main_thread->async( [&]{ Q_EMIT status_update(tr("Connecting to %1 network").arg(qApp->applicationName())); });
-      _client->listen_on_port(0, false /*don't wait if not available*/);
+	  _client->listen_on_port(port, false /*don't wait if not available*/);
       fc::ip::endpoint actual_p2p_endpoint = _client->get_p2p_listening_endpoint();
 
       _client->set_daemon_mode(true);
